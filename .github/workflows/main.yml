@@ -43,3 +43,4 @@ jobs:
               heroku_api_key: ${{secrets.HERUKO_API_KEY}}
               heroku_app_name: "precily-ui-task"
               heroku_email: "ajaydayma1401@gmail.com"
+              branches: "master"
