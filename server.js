@@ -85,6 +85,15 @@ app.get("/count", (req, res) => {
     console.log(`Total time taken in executing count request: ${endTime - startTime}ms\n`)
 });
 
+//healthcheck
+app.get("/healthcheck", (req,res) => {
+    var startTime = performance.now();
+    console.log(`\nhealthcheck request received`);
+    res.status(200).send("OK");
+    var endTime = performance.now();
+    console.log(`Total time taken in executing healthcheck request: ${endTime - startTime}ms\n`)
+})
+
 app.listen(PORT, () => {
     console.log("Server is up and running at port: " + PORT);
 })

@@ -4,7 +4,8 @@
   "description": "Simple UI application",
   "main": "server.js",
   "scripts": {
-    "test": "npm test"
+    "start": "node server.js",
+    "test": "jest server.test.js --detectOpenHandles"
   },
   "author": "Ajay Dayma",
   "license": "ISC",
@@ -13,5 +14,9 @@
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "mongoose": "^6.6.2"
+  },
+  "devDependencies": {
+    "jest": "^29.0.3",
+    "supertest": "^6.2.4"
   }
 }
