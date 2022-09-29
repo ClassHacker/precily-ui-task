@@ -1,5 +1,5 @@
 {
-  "name": "precily",
+  "name": "precily-ui-task",
   "version": "1.0.0",
   "description": "Simple UI application",
   "main": "server.js",
