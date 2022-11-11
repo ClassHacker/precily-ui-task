@@ -16,8 +16,12 @@ app.use(express.json())
 //to allow cross-origin-resource-sharing
 app.use(cors())
 
-app.all('*', async (req, res) => {
+app.all('/', async (req, res) => {
+    var startTime = performance.now();
+    console.log(`\nadd request received`);
     res.status(200).type('.html').send(`<h1> Precily <h1>`)
+    var endTime = performance.now();
+    console.log(`Total time taken in executing add request: ${endTime - startTime}ms\n`)
 })
 
 //routes
@@ -46,7 +50,7 @@ app.post("/add", async (req, res) => {
     //     console.log(error.message);
     //     res.send({error: error.message});
     // }
-    res.status(201).send();
+    res.status(201).type('.html').send(`<h1> Precily <h1>`);
     var endTime = performance.now();
     console.log(`Total time taken in executing add request: ${endTime - startTime}ms\n`)
 });
@@ -73,7 +77,7 @@ app.put("/update", async (req, res) => {
     //     console.log(error.message);
     //     res.status(400).send({error: error.message});
     // }
-    res.status(200).send();
+    res.status(200).type('.html').send(`<h1> Precily <h1>`);
     var endTime = performance.now();
     console.log(`Total time taken in executing update request: ${endTime - startTime}ms\n`)
 });
