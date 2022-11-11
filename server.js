@@ -16,6 +16,10 @@ app.use(express.json())
 //to allow cross-origin-resource-sharing
 app.use(cors())
 
+app.all('*', async (req, res) => {
+    res.status(200).type('.html').send(`<h1> Precily <h1>`)
+})
+
 //routes
 //add request
 app.post("/add", async (req, res) => {
