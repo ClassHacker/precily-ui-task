@@ -6,7 +6,7 @@ const cors = require("cors");
 const { performance } = require("perf_hooks");
 const TextSchema = require("./models/content");
 
-const PORT = process.env.PORT || 8090
+const PORT = process.env.PORT
 let addCount = 0
 let updateCount = 0
 const app = express()
@@ -98,6 +98,10 @@ app.get("/healthcheck", (req,res) => {
     res.status(200).send("OK");
     var endTime = performance.now();
     console.log(`Total time taken in executing healthcheck request: ${endTime - startTime}ms\n`)
+})
+
+app.get('/api', (req,res) => {
+    res.json({msg: "Work in progess..."})
 })
 
 app.listen(PORT, () => {
