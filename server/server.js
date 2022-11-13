@@ -1,5 +1,6 @@
 require("dotenv").config();
 // require("./connection/mongodb");
+const path = require('path')
 const express = require("express");
 const cors = require("cors");
 const { performance } = require("perf_hooks");
@@ -10,21 +11,16 @@ let addCount = 0
 let updateCount = 0
 const app = express()
 
-//to consume & produce json
-app.use(express.json())
+// Have Node serve files for our built React app
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 //to allow cross-origin-resource-sharing
 app.use(cors())
 
 app.all('/', async (req, res) => {
-    var startTime = performance.now();
-    console.log(`\nadd request received`);
-    res.status(200).type('.html').send(`<h1> Precily <h1>`)
-    var endTime = performance.now();
-    console.log(`Total time taken in executing add request: ${endTime - startTime}ms\n`)
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 })
 
-//routes
 //add request
 app.post("/add", async (req, res) => {
     var startTime = performance.now();

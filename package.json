@@ -4,8 +4,9 @@
   "description": "Simple UI application",
   "main": "server.js",
   "scripts": {
+    "build": "cd client && npm install && npm run build",
     "start": "node server/server.js",
-    "test": "jest server/server.test.js --detectOpenHandles"
+    "test": "jest server/server.test.js"
   },
   "author": "Ajay Dayma",
   "license": "ISC",
