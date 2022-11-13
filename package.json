@@ -4,8 +4,8 @@
   "description": "Simple UI application",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "jest server.test.js --detectOpenHandles"
+    "start": "node server/server.js",
+    "test": "jest server/server.test.js --detectOpenHandles"
   },
   "author": "Ajay Dayma",
   "license": "ISC",
