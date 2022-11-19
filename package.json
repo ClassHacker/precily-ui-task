@@ -7,8 +7,8 @@
     "start": "ts-node server/server.js",
     "build": "cd client && npm install && npm run build",
     "start:dev": "nodemon server/server.js",
-    "test": "npm run test:client && npm run test:server",
-    "test:client": "cd client & npm run test",
+    "test:all": "npm run test:client && npm run test:server",
+    "test:client": "cd client && npm run test",
     "test:server": "jest server/server.test.js"
   },
   "author": "Ajay Dayma",
