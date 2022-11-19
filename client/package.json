@@ -9,10 +9,15 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@types/jest": "^29.0.3",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
     "cra-template": "1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "typescript": "^4.8.4"
   },
   "devDependencies": {
     "jest": "^27.5.1"

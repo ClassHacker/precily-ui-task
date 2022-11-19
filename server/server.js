@@ -9,20 +9,20 @@ const TextSchema = require("./models/content");
 const PORT = process.env.PORT
 let addCount = 0
 let updateCount = 0
-const app = express()
+const server = express()
 
 // Have Node serve files for our built React app
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+server.use(express.static(path.resolve(__dirname, "../client/build")));
 
 //to allow cross-origin-resource-sharing
-app.use(cors())
+server.use(cors())
 
-app.all('/', async (req, res) => {
+server.all('/', async (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 })
 
 //add request
-app.post("/add", async (req, res) => {
+server.post("/add", async (req, res) => {
     var startTime = performance.now();
     console.log(`\nadd request received`);
     addCount++;
@@ -52,7 +52,7 @@ app.post("/add", async (req, res) => {
 });
 
 //update request
-app.put("/update", async (req, res) => {
+server.put("/update", async (req, res) => {
     var startTime = performance.now();
     console.log(`\nupdate request received`);
     updateCount++;
@@ -79,7 +79,7 @@ app.put("/update", async (req, res) => {
 });
 
 //count request
-app.get("/count", (req, res) => {
+server.get("/count", (req, res) => {
     var startTime = performance.now();
     console.log(`\ncount request received`);
     res.json({
@@ -92,7 +92,7 @@ app.get("/count", (req, res) => {
 });
 
 //healthcheck
-app.get("/healthcheck", (req,res) => {
+server.get("/healthcheck", (req,res) => {
     var startTime = performance.now();
     console.log(`\nhealthcheck request received`);
     res.status(200).send("OK");
@@ -100,10 +100,10 @@ app.get("/healthcheck", (req,res) => {
     console.log(`Total time taken in executing healthcheck request: ${endTime - startTime}ms\n`)
 })
 
-app.get('/api', (req,res) => {
+server.get('/api', (req,res) => {
     res.json({msg: "Work in progess..."})
 })
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log("Server is up and running at port: " + PORT);
 })
