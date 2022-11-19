@@ -1,15 +1,16 @@
-# Fetching the lastest node
-FROM node:lts-alpine
-
+# Creating build for client
+FROM node:14 AS client-build
 # Setting up the work directory
-WORKDIR /react-app
-
+WORKDIR /app
 # Installing dependencies
-COPY ./package.json /react-app/
-RUN npm install 
+COPY client/ ./client/
+RUN cd client && npm install && npm run build
 
-# Copying all the files in our project
-COPY . .
+FROM node:14
+WORKDIR /app
+COPY --from=client-build /usr/src/app/client/build ./client/build
+COPY ./package.json /app
+RUN npm install
 
 # Starting our application
 CMD npm start
