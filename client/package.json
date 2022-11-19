@@ -5,10 +5,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "set REACT_APP_BASE_URL=/&& react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "cra-template": "1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -4,11 +4,12 @@
   "description": "Simple UI application",
   "main": "server.js",
   "scripts": {
-    "start": "ts-node server.js",
-    "start:dev": "nodemon server.js",
-    "tslint": "tslint --project tscconfig.json --config tslint.json",
-    "start:server": "node server/server.js",
-    "test": "jest server.test.js"
+    "start": "ts-node server/server.js",
+    "build": "cd client && npm install && npm run build",
+    "start:dev": "nodemon server/server.js",
+    "test": "npm run test:client && npm run test:server",
+    "test:client": "cd client & npm run test",
+    "test:server": "jest server/server.test.js"
   },
   "author": "Ajay Dayma",
   "license": "ISC",
