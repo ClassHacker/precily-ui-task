@@ -26,10 +26,10 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '14.x'
 
       - name: Install dependencies
-        run: npm install
+        run: cd server && npm install
 
       - name: Run test
         run: npm test
