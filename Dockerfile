@@ -1,7 +1,7 @@
 FROM node:lts as runner
-WORKDIR /node-express
-ENV NODE_ENV production
+WORKDIR /app
+ENV NODE_ENV=production
+COPY ["package.json", "package-lock.json*", "./"]
+RUN npm install --production
 COPY . .
-RUN npm ci --only=production
-EXPOSE 8080
-CMD ["node", "app.js"]
+CMD [ "node", "server.js" ]
